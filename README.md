@@ -13,6 +13,7 @@ https://user-images.githubusercontent.com/39690358/230775362-adfbb2f4-54b4-4b6c-
 - [x] The limit number that can be converted is 999999999999999
 - [x] Error tooltip for invalid input
 - [x] Dismissable error tooltip by tapping the 'i' icon
+- [x] 100% code coverage (unit tests and widget tests)
 
 ### Packages in use
 
@@ -55,8 +56,11 @@ By following the steps above, you can ensure that your tests continue to cover t
 ## TODO
 
 - [ ] Improve the UI/UX of the app
-- [ ] Add support for localization
+- [ ] Add support for localization using [flutter_localization](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) 
 - [ ] Improve error handling and user feedback
+- [ ] Use [flutter_gen](https://pub.dev/packages/flutter_gen) to generate image assets for the app
+- [ ] Implement integration test
+- [ ] Implement AutoRoute for declarative routing (when needed to do routing)
 
 ## Conclusion
 
