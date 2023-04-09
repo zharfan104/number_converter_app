@@ -57,6 +57,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '00123', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(errorMessage: 'Input has leading zeros', previousInputNumber: '00123'),
         ],
       );
@@ -70,6 +71,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '-00123', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(errorMessage: 'Input has leading zeros', previousInputNumber: '-00123'),
         ],
       );
@@ -83,6 +85,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '123.45', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(
             errorMessage: 'Input contains a decimal point',
             previousInputNumber: '123.45',
@@ -99,6 +102,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '123,45', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(errorMessage: 'Input contains a comma', previousInputNumber: '123,45'),
         ],
       );
@@ -112,6 +116,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '12a34', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12a34'),
         ],
       );
@@ -125,6 +130,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '1000000000000000', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(
             errorMessage: 'Input number exceeds the allowed range',
             previousInputNumber: '1000000000000000',
@@ -141,6 +147,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '-1000000000000000', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(
             errorMessage: 'Input number exceeds the allowed range',
             previousInputNumber: '-1000000000000000',
@@ -157,6 +164,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '12 34', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12 34'),
         ],
       );
@@ -170,6 +178,7 @@ void main() {
         },
         expect: () => const [
           NumberToWordsConverterState.inputChanged(inputNumber: '12-34', previousOutputWords: ''),
+          NumberToWordsConverterState.initial(),
           NumberToWordsConverterState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12-34'),
         ],
       );

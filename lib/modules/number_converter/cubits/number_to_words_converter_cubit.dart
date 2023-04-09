@@ -23,6 +23,7 @@ class NumberToWordsConverterCubit extends Cubit<NumberToWordsConverterState> {
     if (errorMessage == null) {
       convertNumberToWords(inputNumber);
     } else {
+      emit(const NumberToWordsConverterState.initial());
       emit(NumberToWordsConverterState.error(
         errorMessage: errorMessage,
         previousInputNumber: inputNumber,

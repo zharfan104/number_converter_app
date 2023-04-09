@@ -43,10 +43,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
   void didUpdateWidget(CustomTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.errorMessage != widget.errorMessage) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _toggleErrorTooltip();
-      });
+      _toggleErrorTooltipAfterPostFrame();
+
+      return;
     }
+
+    if (_overlayEntry == null) {
+      _toggleErrorTooltipAfterPostFrame();
+
+      return;
+    }
+  }
+
+  void _toggleErrorTooltipAfterPostFrame() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _toggleErrorTooltip();
+    });
   }
 
   bool get hasErrorMessage => widget.errorMessage != null;
