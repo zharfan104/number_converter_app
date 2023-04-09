@@ -28,7 +28,7 @@ jobs:
 
       - name: Format check
         run: |
-          flutter format --set-exit-if-changed . --line-length=120/
+          flutter format --set-exit-if-changed . --line-length=120
           git diff --exit-code
 
       - name: Analyze code
