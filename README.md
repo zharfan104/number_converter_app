@@ -1,6 +1,6 @@
 # Number Converter App
 
-A Flutter app that converts numbers to words using a custom-built number to words converter.
+A Flutter app that converts numbers to words using a custom-built number to words converter using BloC state management.
 
 ## Video
 Android:
