@@ -38,7 +38,7 @@ class NumberToWordsConverterBody extends StatelessWidget {
                   ),
                   onChanged: context.read<NumberToWordsConverterCubit>().updateInputNumber,
                   errorMessage: state.errorMessage,
-                  keyboardType: TextInputType.number,
+                  keyboardType: const TextInputType.numberWithOptions(signed: true),
                   inputFormatters: [
                     DecimalInputFormatter(),
                   ],
