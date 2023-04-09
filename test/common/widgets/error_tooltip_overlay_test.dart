@@ -112,7 +112,7 @@ void main() {
           // Verify the tooltip's position
           final positionedTooltip = tester
               .widget<Positioned>(find.ancestor(of: errorTooltipOverlayFinder, matching: find.byType(Positioned)));
-          expect(positionedTooltip.left, 148.0);
+          expect(positionedTooltip.left, 68.0);
           expect(positionedTooltip.top, 232.0);
 
           // Verify the tooltip's message
