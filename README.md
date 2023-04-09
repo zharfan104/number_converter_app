@@ -4,9 +4,11 @@ A Flutter app that converts numbers to words using a custom-built number to word
 
 ## Video
 Android:
+
 https://user-images.githubusercontent.com/39690358/230778481-6f34555e-f09c-45c2-9872-6539eb5ad2c6.mov
 
 Web (Chrome):
+
 https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-964a-57a9cea2fe20.mov
 
 
