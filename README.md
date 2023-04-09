@@ -70,7 +70,7 @@ By following the steps above, you can ensure that your tests continue to cover t
 - [ ] Improve error handling and user feedback
 - [ ] Use [flutter_gen](https://pub.dev/packages/flutter_gen) to generate image assets for the app
 - [ ] Implement integration test
-- [ ] Implement AutoRoute for declarative routing (when needed to do routing)
+- [ ] Implement [AutoRoute](https://pub.dev/packages/auto_route) for declarative routing (when needed to do routing)
 
 ## Conclusion
 
