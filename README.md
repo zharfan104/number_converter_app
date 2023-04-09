@@ -3,18 +3,23 @@
 A Flutter app that converts numbers to words using a custom-built number to words converter.
 
 ## Video
+Android:
+https://user-images.githubusercontent.com/39690358/230778481-6f34555e-f09c-45c2-9872-6539eb5ad2c6.mov
 
-https://user-images.githubusercontent.com/39690358/230777844-60c16291-69d5-42db-ae18-4f4b41cba23a.mov
+Web (Chrome):
+https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-964a-57a9cea2fe20.mov
+
 
 
 ## Supported Features
 
 - [x] Convert decimal numbers without fractions to words
-- [x] The limit number that can be converted is 999999999999999
+- [x] The limit number that can be converted is 999999999999999/-999999999999999
 - [x] Error tooltip for invalid input
 - [x] Dismissable error tooltip by tapping the 'i' icon
 - [x] 100% code coverage (unit tests and widget tests)
 - [x] Tested on Android and Web (Chrome)
+- [x] Developed using Flutter 3.7.9
 
 ### Packages in use
 
