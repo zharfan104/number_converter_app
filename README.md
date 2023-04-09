@@ -67,7 +67,6 @@ By following the steps above, you can ensure that your tests continue to cover t
 
 - [ ] Improve the UI/UX of the app
 - [ ] Add support for localization using [flutter_localization](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) 
-- [ ] Improve error handling and user feedback
 - [ ] Use [flutter_gen](https://pub.dev/packages/flutter_gen) to generate image assets for the app
 - [ ] Implement integration test
 - [ ] Implement [AutoRoute](https://pub.dev/packages/auto_route) for declarative routing (when needed to do routing)
