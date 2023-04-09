@@ -1,15 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/utils/string_extension.dart';
 
-import 'number_to_words_state.dart';
+import 'number_to_words_converter_state.dart';
 
 const _kMaximumNumberAllowed = 999999999999999;
 
-class NumberToWordsCubit extends Cubit<NumberToWordsState> {
-  NumberToWordsCubit() : super(const NumberToWordsState.initial());
+class NumberToWordsConverterCubit extends Cubit<NumberToWordsConverterState> {
+  NumberToWordsConverterCubit() : super(const NumberToWordsConverterState.initial());
 
   void updateInputNumber(String inputNumber) {
-    emit(NumberToWordsState.inputChanged(
+    emit(NumberToWordsConverterState.inputChanged(
       inputNumber: inputNumber,
       previousOutputWords: state.outputWords,
     ));
@@ -23,7 +23,7 @@ class NumberToWordsCubit extends Cubit<NumberToWordsState> {
     if (errorMessage == null) {
       convertNumberToWords(inputNumber);
     } else {
-      emit(NumberToWordsState.error(
+      emit(NumberToWordsConverterState.error(
         errorMessage: errorMessage,
         previousInputNumber: inputNumber,
       ));
@@ -52,7 +52,7 @@ class NumberToWordsCubit extends Cubit<NumberToWordsState> {
   void convertNumberToWords(String inputNumber) {
     if (inputNumber == '0') {
       emit(
-        NumberToWordsState.converted(inputNumber: inputNumber, outputWords: 'Zero'),
+        NumberToWordsConverterState.converted(inputNumber: inputNumber, outputWords: 'Zero'),
       );
 
       return;
@@ -90,7 +90,7 @@ class NumberToWordsCubit extends Cubit<NumberToWordsState> {
       outputWords = 'negative $outputWords';
     }
 
-    emit(NumberToWordsState.converted(
+    emit(NumberToWordsConverterState.converted(
       inputNumber: inputNumber,
       outputWords: outputWords.capitalize(),
     ));

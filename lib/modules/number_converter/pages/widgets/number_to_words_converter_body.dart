@@ -5,8 +5,8 @@ import '../../../../common/ui/size_constants.dart';
 import '../../../../common/utils/decimal_input_formatter.dart';
 import '../../../../common/widgets/custom_text_field.dart';
 import '../../../../common/widgets/info_message.dart';
-import '../../cubits/number_to_words_cubit.dart';
-import '../../cubits/number_to_words_state.dart';
+import '../../cubits/number_to_words_converter_cubit.dart';
+import '../../cubits/number_to_words_converter_state.dart';
 
 const _kOutputWordsMaxLines = 4;
 
@@ -27,11 +27,11 @@ class NumberToWordsConverterBody extends StatelessWidget {
               text: 'Enter a number in the input box and tap Convert to see the equivalent in words in the output box',
             ),
             const SizedBox(height: kSpacingMedium),
-            BlocBuilder<NumberToWordsCubit, NumberToWordsState>(
+            BlocBuilder<NumberToWordsConverterCubit, NumberToWordsConverterState>(
               builder: (context, state) {
                 return CustomTextField(
                   labelText: 'Input Number',
-                  onChanged: context.read<NumberToWordsCubit>().updateInputNumber,
+                  onChanged: context.read<NumberToWordsConverterCubit>().updateInputNumber,
                   errorMessage: state.errorMessage,
                   keyboardType: TextInputType.number,
                   inputFormatters: [
@@ -42,7 +42,7 @@ class NumberToWordsConverterBody extends StatelessWidget {
               },
             ),
             const SizedBox(height: kSpacingMedium),
-            BlocBuilder<NumberToWordsCubit, NumberToWordsState>(
+            BlocBuilder<NumberToWordsConverterCubit, NumberToWordsConverterState>(
               builder: (context, state) {
                 return CustomTextField(
                   key: ValueKey(state.outputWords),
@@ -55,7 +55,7 @@ class NumberToWordsConverterBody extends StatelessWidget {
             ),
             const SizedBox(height: kSpacingMedium),
             ElevatedButton(
-              onPressed: context.read<NumberToWordsCubit>().convert,
+              onPressed: context.read<NumberToWordsConverterCubit>().convert,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: kSpacingMedium),
                 child: Text(

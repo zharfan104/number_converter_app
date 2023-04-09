@@ -1,35 +1,35 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_cubit.dart';
-import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_state.dart';
+import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_converter_cubit.dart';
+import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_converter_state.dart';
 
 void main() {
-  group('NumberToWordsCubit', () {
-    late NumberToWordsCubit cubit;
+  group('NumberToWordsConverterCubit', () {
+    late NumberToWordsConverterCubit cubit;
 
     setUp(() {
-      cubit = NumberToWordsCubit();
+      cubit = NumberToWordsConverterCubit();
     });
 
     tearDown(() async {
       await cubit.close();
     });
 
-    test('initial state is NumberToWordsState.initial()', () {
-      expect(cubit.state, const NumberToWordsState.initial());
+    test('initial state is NumberToWordsConverterState.initial()', () {
+      expect(cubit.state, const NumberToWordsConverterState.initial());
     });
 
-    blocTest<NumberToWordsCubit, NumberToWordsState>(
+    blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
       'updates inputNumber and previousOutputWords when updateInputNumber is called',
       build: () => cubit,
       act: (cubit) => cubit.updateInputNumber('123'),
       expect: () => const [
-        NumberToWordsState.inputChanged(inputNumber: '123', previousOutputWords: ''),
+        NumberToWordsConverterState.inputChanged(inputNumber: '123', previousOutputWords: ''),
       ],
     );
 
     group('convert() emits error state', () {
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input is empty',
         build: () => cubit,
         act: (cubit) {
@@ -37,18 +37,18 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(
+          NumberToWordsConverterState.inputChanged(
             inputNumber: '',
             previousOutputWords: '',
           ),
-          NumberToWordsState.error(
+          NumberToWordsConverterState.error(
             errorMessage: 'Input is empty',
             previousInputNumber: '',
           ),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input has leading zeros (00123)',
         build: () => cubit,
         act: (cubit) {
@@ -56,12 +56,12 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '00123', previousOutputWords: ''),
-          NumberToWordsState.error(errorMessage: 'Input has leading zeros', previousInputNumber: '00123'),
+          NumberToWordsConverterState.inputChanged(inputNumber: '00123', previousOutputWords: ''),
+          NumberToWordsConverterState.error(errorMessage: 'Input has leading zeros', previousInputNumber: '00123'),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input has leading zeros (-00123)',
         build: () => cubit,
         act: (cubit) {
@@ -69,12 +69,12 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '-00123', previousOutputWords: ''),
-          NumberToWordsState.error(errorMessage: 'Input has leading zeros', previousInputNumber: '-00123'),
+          NumberToWordsConverterState.inputChanged(inputNumber: '-00123', previousOutputWords: ''),
+          NumberToWordsConverterState.error(errorMessage: 'Input has leading zeros', previousInputNumber: '-00123'),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input contains a decimal point',
         build: () => cubit,
         act: (cubit) {
@@ -82,12 +82,15 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '123.45', previousOutputWords: ''),
-          NumberToWordsState.error(errorMessage: 'Input contains a decimal point', previousInputNumber: '123.45'),
+          NumberToWordsConverterState.inputChanged(inputNumber: '123.45', previousOutputWords: ''),
+          NumberToWordsConverterState.error(
+            errorMessage: 'Input contains a decimal point',
+            previousInputNumber: '123.45',
+          ),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input contains a comma',
         build: () => cubit,
         act: (cubit) {
@@ -95,12 +98,12 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '123,45', previousOutputWords: ''),
-          NumberToWordsState.error(errorMessage: 'Input contains a comma', previousInputNumber: '123,45'),
+          NumberToWordsConverterState.inputChanged(inputNumber: '123,45', previousOutputWords: ''),
+          NumberToWordsConverterState.error(errorMessage: 'Input contains a comma', previousInputNumber: '123,45'),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input is not a valid number',
         build: () => cubit,
         act: (cubit) {
@@ -108,12 +111,12 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '12a34', previousOutputWords: ''),
-          NumberToWordsState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12a34'),
+          NumberToWordsConverterState.inputChanged(inputNumber: '12a34', previousOutputWords: ''),
+          NumberToWordsConverterState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12a34'),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input number exceeds the maximum allowed value',
         build: () => cubit,
         act: (cubit) {
@@ -121,15 +124,15 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '1000000000000000', previousOutputWords: ''),
-          NumberToWordsState.error(
+          NumberToWordsConverterState.inputChanged(inputNumber: '1000000000000000', previousOutputWords: ''),
+          NumberToWordsConverterState.error(
             errorMessage: 'Input number exceeds the allowed range',
             previousInputNumber: '1000000000000000',
           ),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input number exceeds the minimum allowed value',
         build: () => cubit,
         act: (cubit) {
@@ -137,15 +140,15 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '-1000000000000000', previousOutputWords: ''),
-          NumberToWordsState.error(
+          NumberToWordsConverterState.inputChanged(inputNumber: '-1000000000000000', previousOutputWords: ''),
+          NumberToWordsConverterState.error(
             errorMessage: 'Input number exceeds the allowed range',
             previousInputNumber: '-1000000000000000',
           ),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input contains a space',
         build: () => cubit,
         act: (cubit) {
@@ -153,12 +156,12 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '12 34', previousOutputWords: ''),
-          NumberToWordsState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12 34'),
+          NumberToWordsConverterState.inputChanged(inputNumber: '12 34', previousOutputWords: ''),
+          NumberToWordsConverterState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12 34'),
         ],
       );
 
-      blocTest<NumberToWordsCubit, NumberToWordsState>(
+      blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
         'emits error state when input has a negative sign in the middle',
         build: () => cubit,
         act: (cubit) {
@@ -166,8 +169,8 @@ void main() {
           cubit.convert();
         },
         expect: () => const [
-          NumberToWordsState.inputChanged(inputNumber: '12-34', previousOutputWords: ''),
-          NumberToWordsState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12-34'),
+          NumberToWordsConverterState.inputChanged(inputNumber: '12-34', previousOutputWords: ''),
+          NumberToWordsConverterState.error(errorMessage: 'Input is not a valid number', previousInputNumber: '12-34'),
         ],
       );
     });
@@ -177,7 +180,7 @@ void main() {
         String inputNumber,
         String outputWords,
       ) {
-        blocTest<NumberToWordsCubit, NumberToWordsState>(
+        blocTest<NumberToWordsConverterCubit, NumberToWordsConverterState>(
           'emits error when convert is called with input $inputNumber',
           build: () => cubit,
           act: (cubit) {
@@ -185,8 +188,8 @@ void main() {
             cubit.convert();
           },
           expect: () => [
-            NumberToWordsState.inputChanged(inputNumber: inputNumber, previousOutputWords: ''),
-            NumberToWordsState.converted(
+            NumberToWordsConverterState.inputChanged(inputNumber: inputNumber, previousOutputWords: ''),
+            NumberToWordsConverterState.converted(
               inputNumber: inputNumber,
               outputWords: outputWords,
             ),

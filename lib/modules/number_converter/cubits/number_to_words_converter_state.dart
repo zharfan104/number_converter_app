@@ -1,23 +1,23 @@
 import 'package:equatable/equatable.dart';
 
-class NumberToWordsState extends Equatable {
-  const NumberToWordsState.initial()
+class NumberToWordsConverterState extends Equatable {
+  const NumberToWordsConverterState.initial()
       : inputNumber = '',
         outputWords = '',
         errorMessage = null;
 
-  const NumberToWordsState.error({
+  const NumberToWordsConverterState.error({
     required this.errorMessage,
     required String previousInputNumber,
   })  : inputNumber = previousInputNumber,
         outputWords = '';
 
-  const NumberToWordsState.converted({
+  const NumberToWordsConverterState.converted({
     required this.inputNumber,
     required this.outputWords,
   }) : errorMessage = null;
 
-  const NumberToWordsState.inputChanged({
+  const NumberToWordsConverterState.inputChanged({
     required this.inputNumber,
     required String previousOutputWords,
   })  : outputWords = previousOutputWords,

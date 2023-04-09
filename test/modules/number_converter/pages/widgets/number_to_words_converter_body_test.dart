@@ -5,24 +5,25 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:number_converter_app/common/widgets/custom_text_field.dart';
 import 'package:number_converter_app/common/widgets/info_message.dart';
-import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_cubit.dart';
-import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_state.dart';
+import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_converter_cubit.dart';
+import 'package:number_converter_app/modules/number_converter/cubits/number_to_words_converter_state.dart';
 import 'package:number_converter_app/modules/number_converter/pages/widgets/number_to_words_converter_body.dart';
 
-class MockNumberToWordsCubit extends MockCubit<NumberToWordsState> implements NumberToWordsCubit {}
+class MockNumberToWordsConverterCubit extends MockCubit<NumberToWordsConverterState>
+    implements NumberToWordsConverterCubit {}
 
 void main() {
   group('NumberToWordsConverterBody', () {
-    late NumberToWordsCubit cubit;
+    late NumberToWordsConverterCubit cubit;
 
     setUp(() {
-      cubit = MockNumberToWordsCubit();
+      cubit = MockNumberToWordsConverterCubit();
     });
 
     testWidgets(
       'should display input and output fields, a convert button, and an info message',
       (WidgetTester tester) async {
-        when(() => cubit.state).thenReturn(const NumberToWordsState.initial());
+        when(() => cubit.state).thenReturn(const NumberToWordsConverterState.initial());
 
         await tester.pumpWidget(
           MaterialApp(
@@ -61,7 +62,7 @@ void main() {
     testWidgets(
       'should accept valid decimal numbers without fractions in the input field',
       (WidgetTester tester) async {
-        when(() => cubit.state).thenReturn(const NumberToWordsState.initial());
+        when(() => cubit.state).thenReturn(const NumberToWordsConverterState.initial());
 
         await tester.pumpWidget(
           MaterialApp(
@@ -89,7 +90,7 @@ void main() {
     testWidgets(
       'should not accept alphabets in the input field, only decimal numbers',
       (WidgetTester tester) async {
-        when(() => cubit.state).thenReturn(const NumberToWordsState.initial());
+        when(() => cubit.state).thenReturn(const NumberToWordsConverterState.initial());
 
         await tester.pumpWidget(
           MaterialApp(
@@ -116,7 +117,7 @@ void main() {
     testWidgets(
       'should not accept fractions in the input field, only decimal numbers',
       (WidgetTester tester) async {
-        when(() => cubit.state).thenReturn(const NumberToWordsState.initial());
+        when(() => cubit.state).thenReturn(const NumberToWordsConverterState.initial());
 
         await tester.pumpWidget(
           MaterialApp(
@@ -143,12 +144,12 @@ void main() {
     testWidgets(
       'should have a read-only output field',
       (WidgetTester tester) async {
-        when(() => cubit.state).thenReturn(const NumberToWordsState.initial());
+        when(() => cubit.state).thenReturn(const NumberToWordsConverterState.initial());
 
         await tester.pumpWidget(
           MaterialApp(
             home: Scaffold(
-              body: BlocProvider<NumberToWordsCubit>.value(
+              body: BlocProvider<NumberToWordsConverterCubit>.value(
                 value: cubit,
                 child: const NumberToWordsConverterBody(),
               ),
@@ -168,7 +169,7 @@ void main() {
     );
 
     testWidgets('should trigger conversion when tapping the "Convert" button', (WidgetTester tester) async {
-      when(() => cubit.state).thenReturn(const NumberToWordsState.initial());
+      when(() => cubit.state).thenReturn(const NumberToWordsConverterState.initial());
 
       await tester.pumpWidget(
         MaterialApp(
@@ -192,7 +193,7 @@ void main() {
       'should show the correct conversion of 999999999999999 to words in the output field',
       (WidgetTester tester) async {
         when(() => cubit.state).thenReturn(
-          const NumberToWordsState.converted(
+          const NumberToWordsConverterState.converted(
             inputNumber: '999999999999999',
             outputWords:
                 'Nine hundred ninety-nine trillion nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine',
