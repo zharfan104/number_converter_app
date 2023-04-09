@@ -27,7 +27,6 @@ https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-
 
 - [equatable](https://pub.dev/packages/equatable) for creating objects that can be easily compared
 - [flutter_bloc](https://pub.dev/packages/flutter_bloc) for integrating `bloc` with Flutter
-- [mocktail](https://pub.dev/packages/mocktail) for creating mock data for testing
 
 ### Dev dependencies
 
@@ -36,6 +35,7 @@ https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-
 - [all_lint_rules_community](https://pub.dev/packages/all_lint_rules_community) for linting rules
 - [dart_code_metrics](https://pub.dev/packages/dart_code_metrics) for analyzing code metrics and providing additional static analysis
 - [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) for customizing launcher icons
+- [mocktail](https://pub.dev/packages/mocktail) for creating mock data for testing
 
 ## Running the App
 
