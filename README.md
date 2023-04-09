@@ -22,6 +22,7 @@ https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-
 - [x] 100% code coverage (unit tests and widget tests)
 - [x] Tested on Android and Web (Chrome)
 - [x] Developed using Flutter 3.7.9
+- [x] GitHub Actions CI pipeline for Testing, Formatting, Analyzing, and Building APK
 
 ### Packages in use
 
