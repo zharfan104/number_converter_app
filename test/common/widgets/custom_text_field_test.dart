@@ -101,6 +101,40 @@ void main() {
         expect(find.text(newErrorMessage), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'CustomTextField should show the error tooltip message if the error message has not changed but the tooltip is hidden when didUpdateWidget is called',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: _CustomTextFieldTestWrapper(),
+            ),
+          ),
+        );
+
+        final iconButton = find.byIcon(Icons.info);
+        expect(iconButton, findsNothing);
+
+        final _CustomTextFieldTestWrapperState testWrapperState =
+            tester.state(find.byType(_CustomTextFieldTestWrapper));
+        testWrapperState.updateErrorMessage(errorMessage);
+        await tester.pumpAndSettle();
+
+        expect(iconButton, findsOneWidget);
+        expect(find.text(errorMessage), findsOneWidget);
+
+        await tester.tap(iconButton);
+        await tester.pumpAndSettle();
+
+        expect(find.text(errorMessage), findsNothing);
+
+        testWrapperState.updateErrorMessage(errorMessage);
+        await tester.pumpAndSettle();
+
+        expect(find.text(errorMessage), findsOneWidget);
+      },
+    );
   });
 }
 
