@@ -14,6 +14,7 @@ https://user-images.githubusercontent.com/39690358/230775362-adfbb2f4-54b4-4b6c-
 - [x] Error tooltip for invalid input
 - [x] Dismissable error tooltip by tapping the 'i' icon
 - [x] 100% code coverage (unit tests and widget tests)
+- [x] Tested on Android and Web (Chrome)
 
 ### Packages in use
 
