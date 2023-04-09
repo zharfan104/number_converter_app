@@ -18,7 +18,7 @@ void main() {
       expect(find.byType(AppBar), findsOneWidget);
 
       // Verify if the AppBar title text is "Converter App"
-      expect(find.text('Converter App'), findsOneWidget);
+      expect(find.text('Number Converter App'), findsOneWidget);
 
       // Verify if NumberToWordsConverterBody is found
       expect(find.byType(NumberToWordsConverterBody), findsOneWidget);
