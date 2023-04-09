@@ -51,7 +51,7 @@ That's it! The app should now be running on your device or simulator.
 
 ### Testing and Code Coverage
 
-This app is thoroughly tested using the flutter_test package to ensure the reliability and maintainability of the codebase. It currently boasts 100% code coverage, which means that all lines of code are executed during testing, providing confidence in the app's core functionality.
+This app is thoroughly tested using the `flutter_test` package to ensure the reliability and maintainability of the codebase. It currently boasts 100% code coverage, which means that all lines of code are executed during testing, providing confidence in the app's core functionality.
 To generate and view the code coverage report, follow these steps:
 
 1. Run tests with coverage `flutter test --coverage`
