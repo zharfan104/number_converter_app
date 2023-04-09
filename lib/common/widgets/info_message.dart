@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/app_colors.dart';
-import '../ui/size_constants.dart';
+import '../ui/app_size_constants.dart';
 
 class InfoMessage extends StatelessWidget {
   const InfoMessage({

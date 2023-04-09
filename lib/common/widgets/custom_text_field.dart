@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../ui/app_colors.dart';
-import '../ui/size_constants.dart';
+import '../ui/app_size_constants.dart';
 import 'error_tooltip_overlay.dart';
 
 const _kFocusedBorderWidth = 2.0;

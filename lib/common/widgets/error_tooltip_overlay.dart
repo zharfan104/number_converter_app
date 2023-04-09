@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../ui/app_colors.dart';
-import '../ui/size_constants.dart';
+import '../ui/app_size_constants.dart';
 import '../utils/text_widget_size_calculator.dart';
 import 'triangle_painter.dart';
 

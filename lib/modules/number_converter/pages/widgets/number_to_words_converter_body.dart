@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../common/ui/app_colors.dart';
-import '../../../../common/ui/size_constants.dart';
+import '../../../../common/ui/app_size_constants.dart';
 import '../../../../common/utils/decimal_input_formatter.dart';
 import '../../../../common/widgets/custom_text_field.dart';
 import '../../../../common/widgets/info_message.dart';
