@@ -3,11 +3,11 @@
 A Flutter app that converts numbers to words using a custom-built number to words converter using BloC state management.
 
 ## Video
-Android:
+### Android:
 
 https://user-images.githubusercontent.com/39690358/230778481-6f34555e-f09c-45c2-9872-6539eb5ad2c6.mov
 
-Web (Chrome):
+### Web (Chrome):
 
 https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-964a-57a9cea2fe20.mov
 
@@ -24,12 +24,12 @@ https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-
 - [x] Developed using Flutter 3.7.9
 - [x] GitHub Actions CI pipeline for Testing, Formatting, Analyzing, and Building APK
 
-### Packages in use
+## Packages in use
 
 - [equatable](https://pub.dev/packages/equatable) for creating objects that can be easily compared
 - [flutter_bloc](https://pub.dev/packages/flutter_bloc) for integrating `bloc` with Flutter
 
-### Dev dependencies
+## Dev dependencies
 
 - [bloc_test](https://pub.dev/packages/bloc_test) for testing `bloc` implementations
 - [flutter_test](https://flutter.dev/docs/testing) for testing Flutter apps
@@ -49,7 +49,7 @@ To run the app, follow these steps:
 
 That's it! The app should now be running on your device or simulator.
 
-### Testing and Code Coverage
+## Testing and Code Coverage
 
 This app is thoroughly tested using the `flutter_test` package to ensure the reliability and maintainability of the codebase. It currently boasts 100% code coverage, which means that all lines of code are executed during testing, providing confidence in the app's core functionality.
 To generate and view the code coverage report, follow these steps:
