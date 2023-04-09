@@ -24,6 +24,9 @@ https://user-images.githubusercontent.com/39690358/230778607-8e9a6214-df91-4ec0-
 - [x] Developed using Flutter 3.7.9
 - [x] GitHub Actions CI pipeline for Testing, Formatting, Analyzing, and Building APK
 
+## Notes
+- We intentionally designed the text field to accept leading zeros and more than the maximum length so we can showcase the error tooltip functionality.
+
 ## Packages in use
 
 - [equatable](https://pub.dev/packages/equatable) for creating objects that can be easily compared
