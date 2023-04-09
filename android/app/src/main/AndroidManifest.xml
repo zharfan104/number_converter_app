@@ -2,7 +2,7 @@
     package="com.example.number_converter_app">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="number_converter_app"
+        android:label="Number Converter App"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

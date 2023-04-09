@@ -13,7 +13,7 @@ class NumberToWordsConverterPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => NumberToWordsConverterCubit(),
       child: Scaffold(
-        appBar: AppBar(title: const Text('Converter App')),
+        appBar: AppBar(title: const Text('Number Converter App')),
         body: const NumberToWordsConverterBody(),
         drawer: const NumberToWordsConverterDrawer(),
       ),
