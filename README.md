@@ -4,7 +4,7 @@ A Flutter app that converts numbers to words using a custom-built number to word
 
 ## Video
 
-https://user-images.githubusercontent.com/39690358/230775362-adfbb2f4-54b4-4b6c-8408-0b43e469f1a7.mov
+https://user-images.githubusercontent.com/39690358/230777844-60c16291-69d5-42db-ae18-4f4b41cba23a.mov
 
 
 ## Supported Features
@@ -50,7 +50,8 @@ To generate and view the code coverage report, follow these steps:
 2. Generate an HTML report `genhtml coverage/lcov.info -o coverage/html`
 3. Open the generated HTML report in your browser `open coverage/html/index.html`
 
-![Screenshot 2023-04-09 at 20 26 11](https://user-images.githubusercontent.com/39690358/230775435-f8dfe638-0cdd-45f0-b68f-bdbbeaf800f3.png)
+![Screenshot 2023-04-09 at 21 21 20](https://user-images.githubusercontent.com/39690358/230778188-09292a86-58fa-4e28-bf75-ba4e1fc1a978.png)
+
 
 By following the steps above, you can ensure that your tests continue to cover the core functionality of the app as you make changes and improvements. Strive to maintain or improve the code coverage percentage for a robust and dependable application.
 
