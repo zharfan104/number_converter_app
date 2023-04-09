@@ -12,7 +12,7 @@ const _kArrowHeight = 8.0;
 const EdgeInsets _kTextPadding = EdgeInsets.all(kSpacingXSmall);
 
 const double _kMinTooltipWidth = 50;
-const double _kMaxTooltipWidthRatioFromScreenWidth = 0.8;
+const double _kMaxTooltipWidthRatioFromScreenWidth = 0.9;
 
 const double _kTooltipRightPadding = 12.0;
 
