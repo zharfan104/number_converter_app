@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../common/ui/app_colors.dart';
 import '../../../../common/ui/size_constants.dart';
 import '../../../../common/utils/decimal_input_formatter.dart';
 import '../../../../common/widgets/custom_text_field.dart';
@@ -31,6 +32,10 @@ class NumberToWordsConverterBody extends StatelessWidget {
               builder: (context, state) {
                 return CustomTextField(
                   labelText: 'Input Number',
+                  prefixIcon: Icon(
+                    Icons.onetwothree,
+                    color: state.errorMessage != null ? AppColors.lightRed : AppColors.lightGrey,
+                  ),
                   onChanged: context.read<NumberToWordsConverterCubit>().updateInputNumber,
                   errorMessage: state.errorMessage,
                   keyboardType: TextInputType.number,

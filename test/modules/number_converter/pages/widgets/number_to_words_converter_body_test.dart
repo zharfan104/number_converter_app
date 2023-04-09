@@ -42,6 +42,7 @@ void main() {
 
         expect(inputTextFieldFinder, findsOneWidget);
         expect(find.text('Input Number'), findsOneWidget);
+        expect(find.byIcon(Icons.onetwothree), findsOneWidget);
 
         final outputTextFieldFinder = find.byWidgetPredicate(
           (widget) => widget is CustomTextField && widget.labelText == 'Answer:',

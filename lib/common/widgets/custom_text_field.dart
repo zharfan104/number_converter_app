@@ -11,6 +11,7 @@ class CustomTextField extends StatefulWidget {
   const CustomTextField({
     super.key,
     required this.labelText,
+    this.prefixIcon,
     this.errorMessage,
     this.onChanged,
     this.keyboardType,
@@ -22,6 +23,7 @@ class CustomTextField extends StatefulWidget {
   });
 
   final String labelText;
+  final Widget? prefixIcon;
   final String? errorMessage;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
@@ -106,6 +108,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           readOnly: widget.readOnly,
           maxLines: widget.maxLines,
           decoration: InputDecoration(
+            prefixIcon: widget.prefixIcon,
             suffixIcon: hasErrorMessage
                 ? GestureDetector(
                     onTap: _toggleErrorTooltip,
